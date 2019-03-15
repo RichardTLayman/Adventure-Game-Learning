@@ -19,10 +19,7 @@ namespace Adventure_game_learning
             //print out game title and overview
             public static void StartGame()
             {
-                Console.WriteLine("My Adventure Game.");
-                Console.WriteLine("Press any key to continue:");
-                Console.WriteLine();
-                Console.ReadKey();
+                GameTitle();
                 NameCharacter();
                 Choice();
             }
@@ -57,6 +54,17 @@ namespace Adventure_game_learning
 
                 Console.WriteLine();
                 Console.WriteLine("With the first trial complete, you smile and walk toword the next.");
+            }
+            static void GameTitle()
+            {
+                string Title = @"Your title here";
+                Console.Title = Title;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(Title);
+                Console.ResetColor();
+                Console.WriteLine("Press enter to start");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
 
