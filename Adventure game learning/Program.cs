@@ -22,7 +22,10 @@ namespace Adventure_game_learning
                 GameTitle();
                 NameCharacter();
                 Choice();
+                EndGame();
             }
+
+            
 
             //ask player for a name, and save it
             static void NameCharacter()
@@ -57,7 +60,14 @@ namespace Adventure_game_learning
             }
             static void GameTitle()
             {
-                string Title = @"Your title here";
+                string Title = @"
+              {'' - ''}
+                (o o)
+              ,--`Y'--.
+              ``:   ; ''
+                / _ \
+               ()' `()
+              ";
                 Console.Title = Title;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(Title);
@@ -65,6 +75,11 @@ namespace Adventure_game_learning
                 Console.WriteLine("Press enter to start");
                 Console.ReadKey();
                 Console.Clear();
+            }
+            private static void EndGame()
+            {
+                Console.WriteLine("Congratulations! You win!");
+                Console.ReadKey();
             }
         }
 
