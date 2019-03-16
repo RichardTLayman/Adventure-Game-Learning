@@ -13,8 +13,40 @@ namespace Adventure_game_learning
     {
         public static class Game
         {
+            static int Scenarios = 3;
             //character name
             static string CharacterName = "John Doe";
+
+            static string[] PartOne =
+            {
+                "Two doors stand before you. One is marked A, the other B. Which do you choose?",
+                "Door A opens to a spout of flames.",
+                "Door B sticks slightly as a chilly breeze rushes out for the opening",
+                "Braving the elements, you open the door wider and step through",
+                "Immeadiately you feel hot and sweaty as you rush through the fire corrider diving through the opening at the other side to safety",
+                "Stepping carefully over the icy floor, you navigate to the end and almost make before slipping on teh ice and sliding through a small opening",
+                "Recovering to your feet, you press on."
+            };
+            static string[] PartTwo =
+            {
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g"
+            };
+            static string[] PartThree =
+            {
+                "aa",
+                "bb",
+                "cc",
+                "dd",
+                "ee",
+                "ff",
+                "gg"
+            };
 
             //print out game title and overview
             public static void StartGame()
@@ -40,23 +72,123 @@ namespace Adventure_game_learning
             }
             static void Choice()
             {
-                string input = "";
-                Console.WriteLine(CharacterName + ", Two doors appear before you. The first glows red and screams with flames. The second is frozen and sparkles with ice.");
-                Console.WriteLine("Which path do you choose? Fire or Ice?");
-                input = Console.ReadLine();
-                input = input.ToUpper();
-
-                if (input == "FIRE")
-                { 
-                    Console.WriteLine("Flames burn around you as you quickly navigate the path of fire. You arrive at other end a litle singed, but alive.");
-                }
-                else
+               for (int section = 1; section <= Scenarios; section++)
                 {
-                    Console.WriteLine("Shaking from the cold, you slowly cross the icy floor. You arrive at the other end with a few icicles forming on your brow, but otherwise safe.");
-                }
+                    string input = "";
 
-                Console.WriteLine();
-                Console.WriteLine("With the first trial complete, you smile and walk toword the next.");
+                    switch (section)
+                    {
+                        case 1:
+
+                        Console.WriteLine(PartOne[0]);
+                        Console.ForegroundColor = ConsoleColor.Green;
+
+                        Console.WriteLine("Enter your choice:");
+                            input = Console.ReadLine();
+                            input = input.ToLower();
+                            Console.ResetColor();
+
+                        if (input == "a")
+                            {
+                                Console.WriteLine(PartOne[1]);
+                            }
+                            else
+                            {
+                                Console.WriteLine(PartOne[2]);
+                            }
+
+                            Console.WriteLine(PartOne[3]);
+
+                         if (input == "a")
+                            {
+                                Console.WriteLine(PartOne[4]);
+                            }
+                         else
+                            {
+                                Console.WriteLine(PartOne[5]);
+                            }
+
+                            Console.WriteLine(PartOne[6]);
+
+                            break;
+
+                        case 2:
+
+                            Console.WriteLine(PartTwo[0]);
+                            Console.ForegroundColor = ConsoleColor.Green;
+
+                            Console.WriteLine("Enter your choice:");
+                            input = Console.ReadLine();
+                            input = input.ToLower();
+                            Console.ResetColor();
+
+                            if (input == "a")
+                            {
+                                Console.WriteLine(PartTwo[1]);
+                            }
+                            else
+                            {
+                                Console.WriteLine(PartTwo[2]);
+                            }
+
+                            Console.WriteLine(PartTwo[3]);
+
+                            if (input == "a")
+                            {
+                                Console.WriteLine(PartTwo[4]);
+                            }
+                            else
+                            {
+                                Console.WriteLine(PartTwo[5]);
+                            }
+
+                            Console.WriteLine(PartTwo[6]);
+
+                            break;
+
+                        case 3:
+
+                            Console.WriteLine(PartTwo[0]);
+                            Console.ForegroundColor = ConsoleColor.Green;
+
+                            Console.WriteLine("Enter your choice:");
+                            input = Console.ReadLine();
+                            input = input.ToLower();
+                            Console.ResetColor();
+
+                            if (input == "a")
+                            {
+                                Console.WriteLine(PartThree[1]);
+                            }
+                            else
+                            {
+                                Console.WriteLine(PartThree[2]);
+                            }
+
+                            Console.WriteLine(PartThree[3]);
+
+                            if (input == "a")
+                            {
+                                Console.WriteLine(PartThree[4]);
+                            }
+                            else
+                            {
+                                Console.WriteLine(PartThree[5]);
+                            }
+
+                            Console.WriteLine(PartThree[6]);
+
+                            break;
+
+                        default:
+
+                            break;
+                    }
+
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
             }
             static void GameTitle()
             {
@@ -81,6 +213,7 @@ namespace Adventure_game_learning
                 Console.WriteLine("Congratulations! You win!");
                 Console.ReadKey();
             }
+            
         }
 
         class Item
