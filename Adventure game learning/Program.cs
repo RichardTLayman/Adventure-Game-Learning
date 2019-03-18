@@ -56,7 +56,7 @@ namespace Adventure_game_learning
                 GameTitle();
                 NameCharacter();
                 Item free = new Item();
-                Inventory.Add(Convert.ToString(free));
+                Inventory.Add(free.Name); //call directly from array instead of trying to convert
                 Choice();
                 EndGame();
             }
@@ -155,7 +155,7 @@ namespace Adventure_game_learning
 
                         case 3:
 
-                            Console.WriteLine(PartTwo[0]);
+                            Console.WriteLine(PartThree[0]);
                             Console.ForegroundColor = ConsoleColor.Green;
 
                             Console.WriteLine("Enter your choice:");
@@ -254,7 +254,6 @@ namespace Adventure_game_learning
 
                 Console.WriteLine("You found a " + Name + " (" + Description + ").");
             }
-
         }
 
         static void Main(string[] args)
