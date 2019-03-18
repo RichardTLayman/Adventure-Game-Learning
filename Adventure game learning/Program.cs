@@ -17,6 +17,8 @@ namespace Adventure_game_learning
             //character name
             static string CharacterName = "John Doe";
 
+            static List<string> Inventory = new List<string>();
+
             static string[] PartOne =
             {
                 "Two doors stand before you. One is marked A, the other B. Which do you choose?",
@@ -29,23 +31,23 @@ namespace Adventure_game_learning
             };
             static string[] PartTwo =
             {
-                "a",
-                "b",
-                "c",
-                "d",
-                "e",
-                "f",
-                "g"
+                "Brushing off your clothes, you notice two items before you. A sword, and an Axe. Which do you take?",
+                "Grabbing the sword, the Axe vanishes and a shadow emerges from the floor.",
+                "Grabbing the Axe, the sword vanishes and a shadow emerges from teh floor.",
+                "The shadow snarls at you and lunges forward.",
+                "Parrying the attack with your sword, you cleave the monster in two. Something metallic falls to teh ground off its dead body.",
+                "It charges with dark claws as you spin around and strike heavily into its chest with your axe. As it gurgles into death, you notice something metallic.",
+                "You reach down and grab a key that fell from the shadow."
             };
             static string[] PartThree =
             {
-                "aa",
-                "bb",
-                "cc",
-                "dd",
-                "ee",
-                "ff",
-                "gg"
+                "A locked door now stands before you. A keyhole and and a handprint are on it. Which do you use?",
+                "Placing teh key you found inside the keyhole, you give it a turn and unsurprising it opens, but the key vanishes.",
+                "You place your palm on teh panel and it glows with a pale blue light, then the door opens",
+                "You pass through the enterway. Gold and treasure fills the room as far as you can see.",
+                "You pocket some spare coins as you notice a golden chest. Alas it is locked",
+                "A large golden chest snags your attention and you try teh key on it. It opens revealing a magic lamp. You take it.",
+                "With plenty of gold in your pockets, you turn to leave and head home."
             };
 
             //print out game title and overview
@@ -53,6 +55,8 @@ namespace Adventure_game_learning
             {
                 GameTitle();
                 NameCharacter();
+                Item free = new Item();
+                Inventory.Add(Convert.ToString(free));
                 Choice();
                 EndGame();
             }
@@ -125,10 +129,12 @@ namespace Adventure_game_learning
                             if (input == "a")
                             {
                                 Console.WriteLine(PartTwo[1]);
+                                Inventory.Add("Sword");
                             }
                             else
                             {
                                 Console.WriteLine(PartTwo[2]);
+                                Inventory.Add("Axe");
                             }
 
                             Console.WriteLine(PartTwo[3]);
@@ -143,6 +149,7 @@ namespace Adventure_game_learning
                             }
 
                             Console.WriteLine(PartTwo[6]);
+                            Inventory.Add("Key");
 
                             break;
 
@@ -174,6 +181,7 @@ namespace Adventure_game_learning
                             else
                             {
                                 Console.WriteLine(PartThree[5]);
+                                Inventory.Add("Magic Lamp");
                             }
 
                             Console.WriteLine(PartThree[6]);
@@ -211,13 +219,42 @@ namespace Adventure_game_learning
             private static void EndGame()
             {
                 Console.WriteLine("Congratulations! You win!");
+
+                Console.WriteLine(CharacterName + ", you found some items in your journy:");
+
+                foreach (string item in Inventory)
+                    {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(item);
+                    Console.ResetColor();
+                    }
                 Console.ReadKey();
             }
             
         }
 
-        class Item
+        public class Item
         {
+            public string Name = "small stone";
+            public string Description = "Unimpressive object.";
+
+            string[] Items = { "shoe", "can", "pair of chopsticks" };
+            string[] Descriptions = { "Size 10 sneaker", "Empty root beer can", "Pink plastic chopsticks" };
+
+            // constructor
+            public Item()
+            {
+                Random randomNumber = new Random();
+                int number;
+
+                number = randomNumber.Next(Items.Length);
+
+                Name = Items[number];
+                Description = Descriptions[number];
+
+                Console.WriteLine("You found a " + Name + " (" + Description + ").");
+            }
+
         }
 
         static void Main(string[] args)
